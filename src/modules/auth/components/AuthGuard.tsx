@@ -14,7 +14,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
 
   // Si el usuario está autenticado y tiene token, redirigir al dashboard
   if (isAuthenticated && hasToken) {
-    return <Navigate to="/app" replace />;
+    return <Navigate to="/app/profile" replace />;
   }
 
   // Si no está autenticado, mostrar el contenido (formulario de login)

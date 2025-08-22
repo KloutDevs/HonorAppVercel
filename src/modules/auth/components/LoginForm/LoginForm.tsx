@@ -39,7 +39,7 @@ export function LoginForm() {
   const onSubmit = async (data: LoginFormValues) => {
     try {
       await login(data.email, data.password);
-      const from = (location.state as any)?.from?.pathname || '/app';
+      const from = (location.state as any)?.from?.pathname || '/app/profile';
       navigate(from, { replace: true });
     } catch (err) {
       console.error(err);
@@ -64,8 +64,8 @@ export function LoginForm() {
      {/* Sección Derecha - Formulario */}
       <div className={`flex flex-col w-full max-w-[535px] ${styles.container}`}>
         {/* Card Principal */}
-        <RectBlurCardCSS className="flex-1">
-          <div className="relative w-full h-full p-4 md:p-[32px]">
+        <RectBlurCardCSS>
+          <div className="relative w-full h-auto p-4 md:p-[32px] overflow-hidden">
             {/* Background con blur */}
             <div className="relative flex flex-col items-center w-full h-full rounded-[32px] bg-[rgba(10,15,13,0.70)] backdrop-blur-[4px]">
               {/* Imagen Militar */}

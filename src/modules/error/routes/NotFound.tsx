@@ -17,7 +17,7 @@ export default function NotFound() {
                     </p>
                     <Button
                         variant="primary"
-                        onClick={() => navigate('/staff/dashboard')}
+                        onClick={() => navigate('/')}
                         className={styles.button}
                     >
                         Volver al inicio

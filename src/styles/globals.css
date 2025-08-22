@@ -9,6 +9,10 @@
   outline: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 
 /* Altura mínima */
 @custom-variant min-h-500 (@media (min-height: 500px));

@@ -60,10 +60,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setError(null);
 
       const response = await authApi.login({ email, password });
-      updateUser(response.data.user);
       showToast('Inicio de sesión exitoso', 'success');
+      updateUser(response?.data?.user);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Error en la autenticación';
+      const errorMessage = 'Error en la autenticación';
       setError({ message: errorMessage });
       showToast(errorMessage, 'error');
       throw error;
@@ -225,9 +225,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             console.log('[Auth Debug] Refresh failed:', refreshError);
             updateUser(null);
           }
-        } else if (!token && !user) {
+        } else if (!token) {
           // Si no hay token ni usuario, no hacer nada (ya está limpio)
-          console.log('[Auth Debug] No token and no user - unauthenticated state');
+          console.log(user)
+          console.log('[Auth Debug] No token - unauthenticated state');
           return;
         }
       } catch (error) {

@@ -94,11 +94,6 @@ export function EmailVerificationForm({ onVerificationSuccess, onBack }: EmailVe
               <div className="flex w-full p-6 xl:py-[48px] [@media(max-height:954px)]:py-[12px] flex-col items-center gap-6 md:gap-8 rounded-[32px] bg-cards z-3">
                 {/* Espaciador */}
                 <div className="flex flex-col items-start gap-4 md:gap-6 [@media(max-height:954px)]:gap-[8px] w-full">
-                  {error && (
-                    <div className="mb-4 p-3 text-red-500 bg-red-100 rounded-md transition-all duration-200 ease-in-out animate-fadeIn">
-                      {error.message}
-                    </div>
-                  )}
 
                   {/* Header */}
                   <div className="flex w-full pb-4 md:pb-[32px] [@media(max-height:954px)]:pb-[6px] flex-col justify-center items-center gap-2 md:gap-[4px]">

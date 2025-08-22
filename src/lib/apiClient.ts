@@ -1,4 +1,4 @@
-import axios, { type AxiosInstance, type AxiosResponse, AxiosError } from 'axios';
+import axios, { type AxiosInstance, type AxiosError } from 'axios';
 import Cookies from 'js-cookie';
 import type { ApiResponse } from '@/types/api';
 
@@ -12,12 +12,11 @@ class ApiClient {
   }> = [];
 
   constructor() {
-    this.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+    this.baseURL = import.meta.env.VITE_API_URL || 'https://staging-ht-service.app.ordev.tech/api';
     
     this.api = axios.create({
       baseURL: this.baseURL,
       timeout: 300000, // 5 minutos para peticiones normales
-      withCredentials: false, // NO enviar cookies por defecto
       headers: {
         'Content-Type': 'application/json',
       },
@@ -27,26 +26,13 @@ class ApiClient {
   }
 
   private setupInterceptors() {
-    // Request interceptor - configura cookies y tokens según el endpoint
+    // Request interceptor - configura tokens
     this.api.interceptors.request.use(
       (config) => {
-        const url = config.url || '';
-        
-        // Solo enviar cookies en el endpoint de refresh
-        if ( url.includes('/user/login') || url.includes('/user/refresh-token') || url.includes('/user/logout')) {
-          config.withCredentials = true;
-        } else {
-          config.withCredentials = false;
+        const token = this.getAccessToken();
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
         }
-        
-        // Solo enviar JWT en peticiones que no sean login ni refresh
-        if (!url.includes('/user/login') && !url.includes('/user/refresh-token') && !url.includes('/user/logout')) {
-          const token = this.getAccessToken();
-          if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-          }
-        }
-        
         return config;
       },
       (error) => {
@@ -83,7 +69,6 @@ class ApiClient {
           } catch (refreshError) {
             this.processQueue(refreshError, null);
             this.removeAccessToken();
-
             localStorage.removeItem('user');
 
             if (typeof window !== 'undefined') {
@@ -133,9 +118,9 @@ class ApiClient {
     try {
       const refreshApi = axios.create({
         baseURL: this.baseURL,
-        withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.getAccessToken()}`
         },
       });
 
@@ -144,11 +129,10 @@ class ApiClient {
       const { token, user } = response.data.data;
       this.setAccessToken(token);
       
-      // Actualizar información del usuario en localStorage
-       if (user) {
-         localStorage.setItem('user', JSON.stringify(user));
-       }
-       return token;
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+      }
+      return token;
     } catch (error) {
       throw error;
     }
@@ -172,13 +156,12 @@ class ApiClient {
     try {
       let config = {};
       
-      // Si los datos son FormData, no establecer Content-Type manualmente
       if (data instanceof FormData) {
         config = {
-          timeout: 1800000, // 30 minutos para subida de archivos
+          timeout: 1800000,
           headers: {
             ...params?.headers,
-            'Content-Type': undefined // Dejar que el navegador establezca el Content-Type automáticamente
+            'Content-Type': undefined
           }
         };
       } else if (params?.headers) {
@@ -200,13 +183,12 @@ class ApiClient {
     try {
       let config = {};
       
-      // Si los datos son FormData, no establecer Content-Type manualmente y usar timeout extendido
       if (data instanceof FormData) {
         config = {
-          timeout: 1800000, // 30 minutos para subida de archivos
+          timeout: 1800000,
           headers: {
             ...params?.headers,
-            'Content-Type': undefined // Dejar que el navegador establezca el Content-Type automáticamente
+            'Content-Type': undefined
           }
         };
       } else if (params?.headers) {
@@ -228,13 +210,12 @@ class ApiClient {
     try {
       let config = {};
       
-      // Si los datos son FormData, no establecer Content-Type manualmente y usar timeout extendido
       if (data instanceof FormData) {
         config = {
-          timeout: 1800000, // 30 minutos para subida de archivos
+          timeout: 1800000,
           headers: {
             ...params?.headers,
-            'Content-Type': undefined // Dejar que el navegador establezca el Content-Type automáticamente
+            'Content-Type': undefined
           }
         };
       } else if (params?.headers) {
