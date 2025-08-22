@@ -1,0 +1,32 @@
+.dropdown-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(190, 221, 125, 0.3) transparent;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: rgba(190, 221, 125, 0.3);
+  border-radius: 20px;
+}
+
+/* Estilos para el trigger cuando está disabled */
+.trigger-disabled {
+  background: rgba(26, 46, 26, 0.2);
+  cursor: not-allowed;
+}
+
+/* Animación para el icono de flecha */
+.arrow-icon {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-open .arrow-icon {
+  transform: rotate(180deg);
+}

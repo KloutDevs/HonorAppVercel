@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  color: var(--color-primary-light);
+  font-family: var(--font-valkocapela);
+  font-size: 2rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}

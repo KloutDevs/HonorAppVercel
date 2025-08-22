@@ -1,0 +1,64 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  color: white;
+  font-family: var(--font-montserrat);
+}
+
+.placeholderIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.placeholderText {
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Shimmer effect */
+.shimmer {
+  background: #2C3917;
+  background-image: linear-gradient(
+    to right,
+    #2C3917 0%,
+    #445921 20%,
+    #2C3917 40%,
+    #2C3917 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}

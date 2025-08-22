@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 24px;
+  border: 1px solid #BEDD7D;
+  background: rgba(26, 46, 26, 0.69);
+  background-blend-mode: multiply;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.title {
+  flex: 1 0 0;
+  color: white;
+  font-family: var(--font-valkocapela);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.subtitle {
+  color: #BEDD7D;
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.subtitle:hover {
+    opacity: 0.8;
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.counter {
+  display: flex;
+  height: 125px;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  color: #BEDD7D;
+  text-align: center;
+  font-family: var(--Family-Display, "VALKO CAPELA");
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.rankContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+}
+
+.rankImage {
+  width: 115px;
+  height: 115px;
+  aspect-ratio: 112/125;
+}

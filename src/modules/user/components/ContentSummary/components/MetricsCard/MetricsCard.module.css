@@ -1,0 +1,199 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.tradesMetrics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 24px;
+  border: 1px solid #BEDD7D;
+  background: rgba(190, 221, 125, 0.20);
+  backdrop-filter: blur(4px);
+}
+
+.kpiContainer {
+  display: flex;
+  width: 446px;
+  height: 74px;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.kpi {
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  border-radius: 12px;
+  background: rgba(190, 221, 125, 0.20);
+  backdrop-filter: blur(25px);
+}
+
+.kpiInner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.kpiContent {
+  display: flex;
+  height: 50px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+}
+
+.kpiLabel {
+  color: white;
+  font-family: var(--font-montserrat);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.kpiValue {
+  color: white;
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.graphContainer {
+  display: flex;
+  width: 446px;
+  height: 177px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 24px;
+}
+
+.graphTitle {
+  color: var(--Background-Texto, #FFF);
+  font-family: var(--Family-Label, Montserrat);
+  font-size: var(--Size-Label-Label-1, 14px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.graphWrapper {
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.graph {
+  width: 100%;
+  height: 100%;
+}
+
+.graph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.goalsMetrics {
+  display: flex;
+  height: 177px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 24px;
+  border: 1px solid #BEDD7D;
+  background: rgba(62, 77, 54, 0.70);
+}
+
+.goalsHeader {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.goalsTitle {
+  flex: 1 0 0;
+  color: white;
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.goalsMonths {
+  color: #BEDD7D;
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.goalsBody {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.goalsPercentage {
+  display: flex;
+  height: 54px;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  color: #BEDD7D;
+  text-align: center;
+  font-family: var(--Family-Display, "VALKO CAPELA");
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.goalsFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerText {
+  color: white;
+  font-family: var(--font-montserrat);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  aspect-ratio: 1/1;
+  background-color: #BEDD7D;
+  border-radius: 50%;
+}

@@ -1,0 +1,207 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addButton {
+  background: var(--color-primary);
+  color: var(--color-background);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-montserrat);
+  transition: all 0.2s ease;
+}
+
+.addButton:hover {
+  opacity: 0.9;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 250px);
+  padding: 10px;
+}
+
+.cardsContainer > * {
+  flex: 1 1 300px;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .cardsContainer > * {
+    max-width: 100%;
+  }
+}
+
+/* Barra de desplazamiento personalizada */
+.cardsContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cardsContainer::-webkit-scrollbar-track {
+  background: rgba(26, 46, 26, 0.3);
+}
+
+.cardsContainer::-webkit-scrollbar-thumb {
+  background: rgba(190, 221, 125, 0.2);
+  border-radius: 4px;
+}
+
+.cardsContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(190, 221, 125, 0.3);
+}
+
+.card {
+  background: rgba(26, 46, 26, 0.4);
+  border: 1px solid rgba(190, 221, 125, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+  background: rgba(68, 89, 33, 0.3);
+  padding: 16px;
+  border-bottom: 1px solid rgba(190, 221, 125, 0.1);
+}
+
+.cardTitle {
+  color: var(--color-primary);
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardContent {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardInfoItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardInfoLabel {
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cardInfoValue {
+  color: var(--color-secondary-light);
+  font-size: 14px;
+}
+
+.cardDescription {
+  color: var(--color-secondary-light);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  text-align: center;
+}
+
+.editButton {
+  background: rgba(190, 221, 125, 0.1);
+  color: var(--color-primary);
+}
+
+.deleteButton {
+  background: rgba(243, 18, 96, 0.1);
+  color: var(--color-danger);
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  opacity: 0.8;
+}
+
+.mediaTypeTag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.video {
+  background: rgba(25, 118, 210, 0.1);
+  color: #1976d2;
+}
+
+.image {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.pdf {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.audio {
+  background: rgba(156, 39, 176, 0.1);
+  color: #9c27b0;
+}
+
+.loading {
+  text-align: center;
+  color: var(--color-secondary-light);
+  padding: 24px;
+}

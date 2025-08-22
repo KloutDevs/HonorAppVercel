@@ -1,0 +1,41 @@
+.layoutContainer {
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  padding: 0 1.5rem 2rem 1.5rem;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+  flex: 1 0 0;
+  align-self: stretch;
+  z-index: 10;
+}
+
+.mainContent {
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.contentWrapper {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentContainer {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+}

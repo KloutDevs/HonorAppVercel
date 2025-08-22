@@ -1,0 +1,21 @@
+.checkbox-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.checkbox-container:focus-within .checkbox {
+  box-shadow: 0 0 0 2px var(--color-primary-clarity);
+}
+
+.checkbox {
+  transition: all 0.2s ease;
+}
+
+.checkbox:hover:not(:disabled) {
+  border-color: var(--color-primary-active);
+}
+
+.checkbox:active:not(:disabled) {
+  transform: scale(0.95);
+}

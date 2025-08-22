@@ -1,0 +1,173 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addButton {
+  background: var(--color-primary);
+  color: var(--color-background);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-montserrat);
+  transition: all 0.2s ease;
+}
+
+.addButton:hover {
+  opacity: 0.9;
+}
+
+.tableContainer {
+  background: rgba(26, 46, 26, 0.4);
+  border: 1px solid rgba(190, 221, 125, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(190, 221, 125, 0.1);
+}
+
+.table th {
+  background: rgba(68, 89, 33, 0.3);
+  color: var(--color-primary);
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+}
+
+.table td {
+  color: var(--color-secondary-light);
+  font-family: var(--font-montserrat);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editButton {
+  background: rgba(190, 221, 125, 0.1);
+  color: var(--color-primary);
+}
+
+.deleteButton {
+  background: rgba(243, 18, 96, 0.1);
+  color: var(--color-danger);
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  opacity: 0.8;
+}
+
+.loading {
+  text-align: center;
+  color: var(--color-secondary-light);
+  padding: 24px;
+}
+
+.tableEmpty {
+  flex: 1;
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  min-height: 300px;
+  text-align: center;
+  gap: 16px;
+}
+
+.loadingState span {
+  color: var(--color-secondary-light);
+  font-size: 14px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  min-height: 300px;
+  text-align: center;
+  color: var(--color-secondary-light);
+}
+
+.emptyState p {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+
+.emptyState span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tableContainer {
+  min-height: 400px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+/* Estilos para la barra de desplazamiento */
+.tableContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableContainer::-webkit-scrollbar-track {
+  background: rgba(26, 46, 26, 0.3);
+}
+
+.tableContainer::-webkit-scrollbar-thumb {
+  background: rgba(190, 221, 125, 0.2);
+  border-radius: 4px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(190, 221, 125, 0.3);
+}

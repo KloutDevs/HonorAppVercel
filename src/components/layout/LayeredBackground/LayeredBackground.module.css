@@ -1,0 +1,125 @@
+.container {
+  min-height: 100vh;
+  max-height: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
+  position: relative;
+
+  /* 1. Fondo negro (capa base) */
+  background-color: #0d0d0d;
+
+  /* 2. Imagen degradado con 20% de opacidad */
+  background-image: url('../../../assets/gradient_background.png');
+  background-size: cover;
+  background-position: bottom right;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+/* 3. Imagen con formas con 5% de opacidad */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/shapes_background.png');
+  background-size: auto;
+  background-position: top left;
+  background-repeat: repeat;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* 4 y 5. Gradientes radiales */
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    /* 5. Gradiente radial verde con 8% de opacidad */
+    radial-gradient(ellipse at center, rgba(144, 238, 144, 0.08) 0%, rgba(144, 238, 144, 0) 70%),
+    /* 4. Gradiente radial negro con 100% de opacidad */
+    radial-gradient(circle at center, black 0%, transparent 100%);
+  z-index: 2;
+}
+
+.shapesContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 130px,
+      100% 130px,
+      100% 100%,
+      0 100%);
+}
+
+.noClip {
+  clip-path: none;
+}
+
+.volumeShape {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/volume_shape_background.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 10;
+  opacity: 0.15;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.outsideShape {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130%;
+  height: 130%;
+  background-image: url('../../../assets/outside_shape.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 11;
+  opacity: 0.05;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  animation: rotate 60s linear infinite;
+}
+
+.worldImage {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/world.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

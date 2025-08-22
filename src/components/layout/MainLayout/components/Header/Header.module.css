@@ -1,0 +1,258 @@
+.header {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  height: 130px;
+  padding-bottom: 1rem;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0 0 32px 32px;
+  border-bottom: 2px solid #1A2E1A;
+  background: radial-gradient(74.68% 148.69% at -48.69% 49.89%, #000 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(122deg, rgba(26, 46, 26, 0.50) 23.64%, rgba(0, 0, 0, 0.00) 99.47%), #1A2E1A;
+  background-blend-mode: multiply, normal, normal;
+  box-shadow: 0 5px 150px 0 rgba(190, 221, 125, 0.10), -30px -30px 150px 0 rgba(255, 255, 255, 0.32), 0 0 150px 0 rgba(13, 75, 10, 0.20);
+  backdrop-filter: blur(25px);
+  z-index: 15;
+}
+
+:global(.brand-container) {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.primaryBar {
+  display: flex;
+  height: 3.125rem;
+  padding: 0.5rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: radial-gradient(74.68% 148.69% at -48.69% 49.89%, #000 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(122deg, rgba(26, 46, 26, 0.50) 23.64%, rgba(0, 0, 0, 0.00) 99.47%), #1A2E1A;
+  background-blend-mode: multiply;
+}
+
+.primarySection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.primaryLeftSection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.menuButton:hover {
+  background: rgba(190, 221, 125, 0.1);
+}
+
+.rankProgress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1 0 0;
+}
+
+.medalIcon {
+  width: 1.40rem;
+  height: 1.40rem; 
+  aspect-ratio: 1/1;
+  color: var(--color-primary-active);
+}
+
+.rankLabel {
+  color: #FFF;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.0125rem;
+}
+
+.rankValue {
+  color: #FFF;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.0125rem; 
+}
+
+.primaryRightSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+  padding-left: 200px;
+  align-self: stretch;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  opacity: 0;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.iconButton:hover {
+  background: rgba(190, 221, 125, 0.1);
+}
+
+.headerIcon {
+  width: 1rem;
+  height: 1rem; 
+  color: var(--color-primary-active);
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.username {
+  color: var(--color-primary-active);
+  text-align: right;
+  font-family: var(--font-montserrat);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.userAddress {
+  color: #FFF;
+  text-align: center;
+  font-family: var(--font-montserrat);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.avatarContainer {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  border: 0.3px solid var(--color-primary-active);
+  overflow: hidden;
+}
+
+/* Estilos de la barra secundaria (De navegación) */
+
+.secondaryBar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; 
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem; 
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.navGroup {
+  display: flex;
+  height: 100%;
+}
+
+.navItem {
+  display: flex;
+  padding: 0.5rem 2rem 0 2rem; 
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem; 
+  flex: 1 0 0;
+  align-self: stretch;
+  transition: all 0.3s ease;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.navItem:hover:not(.active) {
+  background: linear-gradient(180deg, rgba(68, 89, 33, 0.2) 0%, rgba(44, 57, 23, 0.00) 100%);
+}
+
+.navItem.active {
+  border-top: 1px solid var(--color-primary-active);
+  background: linear-gradient(180deg, rgba(68, 89, 33, 0.44) 0%, rgba(44, 57, 23, 0.00) 100%);
+}
+
+.navItem:last-child {
+  padding-right: 20px;
+}
+
+.navText {
+  color: #FFF;
+  font-family: var(--font-valkocapela);
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover .navText {
+  color: var(--color-primary-active);
+}

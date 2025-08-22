@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cancelButton,
+.submitButton {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.cancelButton {
+  background: rgba(190, 221, 125, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(190, 221, 125, 0.15);
+}
+
+.submitButton {
+  background: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+}
+
+.cancelButton:hover:not(:disabled),
+.submitButton:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.cancelButton:disabled,
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

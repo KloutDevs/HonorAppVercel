@@ -1,0 +1,112 @@
+.mainContainer {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    position: relative;
+
+}
+
+.container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(44, 57, 23, 0.43) 0%, rgba(26, 46, 26, 0.55) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de patrón hexagonal sutil */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-rule='evenodd' stroke='rgba(190, 221, 125, 0.05)' fill='none'/%3E%3C/svg%3E");
+  background-size: 30px 30px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 48px;
+  background: rgba(26, 46, 26, 0.4);
+  border: 1px solid rgba(190, 221, 125, 0.1);
+  border-radius: 8px;
+  position: relative;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Bordes estilo militar */
+.content::before,
+.content::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--color-primary-active);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.content::before {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.content::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+.title {
+  font-family: var(--font-valkocapela);
+  font-size: 120px;
+  color: var(--color-primary);
+  text-shadow: 0 0 20px rgba(190, 221, 125, 0.3);
+  margin: 0;
+  line-height: 1;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--color-primary);
+  opacity: 0.5;
+}
+
+.description {
+  color: var(--color-secondary-light);
+  font-family: var(--font-montserrat);
+  font-size: 18px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.button {
+  margin-top: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

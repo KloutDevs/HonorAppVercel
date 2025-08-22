@@ -1,0 +1,49 @@
+.container  {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.testContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showButton {
+  width: 200px;
+}
+
+.configPanel {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.configContent {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(190, 221, 125, 0.3) transparent;
+}
+
+.configContent::-webkit-scrollbar {
+  width: 4px;
+}
+
+.configContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.configContent::-webkit-scrollbar-thumb {
+  background-color: rgba(190, 221, 125, 0.3);
+  border-radius: 20px;
+}

@@ -1,0 +1,84 @@
+@import './fonts.css';
+@import 'tailwindcss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  user-select: none;
+  outline: none;
+}
+
+
+/* Altura mínima */
+@custom-variant min-h-500 (@media (min-height: 500px));
+@custom-variant min-h-720 (@media (min-height: 700px));
+@custom-variant min-h-900 (@media (min-height: 900px));
+
+/* Altura máxima */
+@custom-variant max-h-500 (@media (max-height: 500px));
+@custom-variant max-h-720 (@media (max-height: 700px));
+@custom-variant max-h-900 (@media (max-height: 900px));
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-inter: 'Inter', 'sans-serif';
+  --font-valkocapela: 'VALKO CAPELA', 'sans-serif';
+  --font-montserrat: 'Montserrat', 'sans-serif';
+
+  /* Base light mode */
+  --color-cards: #1a2e1a;
+  --color-background: #0a0f0d;
+  --color-neutral: #3e4d36;
+  --color-text: #ffffff;
+
+  /* Corporate: Primary */
+  --color-primary: #c0dd7d;
+  --color-primary-active: #bedd7d;
+  --color-primary-clarity: rgba(190, 221, 125, 0.2);
+  --color-primary-light: #fff5e6;
+
+  /* Corporate: Secondary */
+  --color-secondary: #3e4d36;
+  --color-secondary-active: #1a2e1a;
+  --color-secondary-clarity: rgba(62, 77, 54, 0.2);
+  --color-secondary-light: #f3fce9;
+
+  /* Semantic: Danger */
+  --color-danger: #f8285a;
+  --color-danger-active: #d81a48;
+  --color-danger-clarity: rgba(248, 40, 90, 0.2);
+  --color-danger-light: #f0c0c4;
+
+  /* Semantic: Success */
+  --color-success: #05cd99;
+  --color-success-active: #04b440;
+  --color-success-clarity: rgba(5, 205, 153, 0.2);
+  --color-success-light: #eafff1;
+
+  /* Semantic: Warning */
+  --color-warning: #c59a00;
+  --color-warning-active: #d9aa00;
+  --color-warning-clarity: #c59a00;
+  --color-warning-light: #f6efd5;
+
+  /* Semantic: Info */
+  --color-info: #7239ea;
+  --color-info-active: #5014d0;
+  --color-info-clarity: rgba(114, 57, 234, 0.2);
+  --color-info-light: #ede4ff;
+
+  /* Disabled */
+  --color-disabled: #d7d7d7;
+  --color-disabled-active: #939393;
+  --color-disabled-clarity: rgba(215, 215, 215, 0.2);
+  --color-disabled-light: #ffffff;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}

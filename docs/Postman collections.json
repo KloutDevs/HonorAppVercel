@@ -1,0 +1,1909 @@
+{
+  "info": {
+    "_postman_id": "6608f847-a691-429b-b200-d5a77eaf37a4",
+    "name": "Honor Trading API",
+    "description": "Documentación automática de la API de Honor Trading",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Verified Emails",
+      "item": [
+        {
+          "name": "Initiate",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/verified-emails/initiate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "verified-emails",
+                "initiate"
+              ]
+            },
+            "description": "Inicia el proceso de verificación de email enviando un código de verificación.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan.perez@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Check",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/verified-emails/check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "verified-emails",
+                "check"
+              ]
+            },
+            "description": "Verifica el código de verificación enviado al email.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan.perez@example.com\",\n  \"verification_code\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Staff",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/staff/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "staff",
+                "login"
+              ]
+            },
+            "description": "Inicia sesión para personal administrativo.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@honor.com\",\n  \"password\": \"AdminPassword123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{staffToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/staff/change-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "staff",
+                "change-password"
+              ]
+            },
+            "description": "Cambia la contraseña del personal administrativo. Requiere autenticación.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"OldPassword123!\",\n  \"newPassword\": \"NewPassword123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{staffToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/staff/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "staff",
+                "profile"
+              ]
+            },
+            "description": "Obtiene el perfil del personal administrativo autenticado."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{superAdminToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/staff/create-admin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "staff",
+                "create-admin"
+              ]
+            },
+            "description": "Crea un nuevo administrador. Solo disponible para superadministradores.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"newadmin@honor.com\",\n  \"password\": \"AdminPassword123!\",\n  \"role\": \"admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{staffToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/staff/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "staff",
+                "logout"
+              ]
+            },
+            "description": "Cierra la sesión del staff y limpia el refresh token."
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/staff/refresh-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "staff",
+                "refresh-token"
+              ]
+            },
+            "description": "Renueva el token de acceso del staff usando el refresh token almacenado en cookies."
+          },
+          "response": []
+        },
+        {
+          "name": "Ranks",
+          "item": [
+            {
+              "name": "Get All Ranks",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/ranks?page=1&limit=10&sort=position",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "ranks"
+                  ]
+                },
+                "description": "Obtiene todos los rangos con paginación y ordenamiento. Requiere permisos de administrador."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Rank By Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/ranks/{{rankId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "ranks",
+                    "{{rankId}}"
+                  ]
+                },
+                "description": "Obtiene un rango específico por su ID. Requiere permisos de administrador."
+              },
+              "response": []
+            },
+            {
+              "name": "Create Rank",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/ranks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "ranks"
+                  ]
+                },
+                "description": "Crea un nuevo rango. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"ELITE\",\n  \"position\": 5,\n  \"cost\": \"1000\",\n  \"monthly_fee\": \"200\",\n  \"earning_goal\": \"1000\",\n  \"global_earnings_pool\": \"500\",\n  \"mission_ids\": [],\n  \"content_ids\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Rank",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/ranks/{{rankId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "ranks",
+                    "{{rankId}}"
+                  ]
+                },
+                "description": "Actualiza un rango existente. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"ELITE UPDATED\",\n  \"cost\": \"1200\",\n  \"monthly_fee\": \"250\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Rank",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/ranks/{{rankId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "ranks",
+                    "{{rankId}}"
+                  ]
+                },
+                "description": "Elimina un rango. No se puede eliminar si hay usuarios asignados. Requiere permisos de administrador."
+              },
+              "response": []
+            },
+            {
+              "name": "Reorder Ranks",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/ranks/reorder",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "ranks",
+                    "reorder"
+                  ]
+                },
+                "description": "Reordena las posiciones de múltiples rangos. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ranks\": [\n    {\n      \"id\": \"{{rankId1}}\",\n      \"position\": 1\n    },\n    {\n      \"id\": \"{{rankId2}}\",\n      \"position\": 2\n    },\n    {\n      \"id\": \"{{rankId3}}\",\n      \"position\": 3\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Educational Content",
+          "item": [
+            {
+              "name": "Get All Content",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content?page=1&limit=10&rank_id={{rankId}}&media_type=video",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content"
+                  ]
+                },
+                "description": "Obtiene todo el contenido educativo con paginación y filtros. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Content Stats",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content/stats",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content",
+                    "stats"
+                  ]
+                },
+                "description": "Obtiene estadísticas del contenido educativo. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Search Content",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content/search?q=trading&media_type=video&rank_id={{rankId}}&page=1&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content",
+                    "search"
+                  ]
+                },
+                "description": "Búsqueda avanzada de contenido educativo. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Content By Rank",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content/rank/{{rankId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content",
+                    "rank",
+                    "{{rankId}}"
+                  ]
+                },
+                "description": "Obtiene contenido educativo por rango específico. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Content By Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content/{{contentId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content",
+                    "{{contentId}}"
+                  ]
+                },
+                "description": "Obtiene un contenido educativo específico por ID. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Create Content",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content"
+                  ]
+                },
+                "description": "Crea nuevo contenido educativo con archivo principal y thumbnail. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "type": "text",
+                      "src": [
+                        "Introducción al Trading"
+                      ]
+                    },
+                    {
+                      "key": "description",
+                      "type": "text",
+                      "src": [
+                        "Video introductorio sobre conceptos básicos de trading"
+                      ]
+                    },
+                    {
+                      "key": "media_type",
+                      "type": "text",
+                      "src": [
+                        "video"
+                      ]
+                    },
+                    {
+                      "key": "rank_id",
+                      "type": "text",
+                      "src": [
+                        "{{rankId}}"
+                      ]
+                    },
+                    {
+                      "key": "url",
+                      "type": "text",
+                      "src": [
+                        "https://example.com/video"
+                      ]
+                    },
+                    {
+                      "key": "file",
+                      "type": "file",
+                      "src": []
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": []
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Content",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content/{{contentId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content",
+                    "{{contentId}}"
+                  ]
+                },
+                "description": "Actualiza parcialmente contenido educativo existente. Solo actualiza los campos enviados, manteniendo los valores existentes para campos no enviados. Soporta archivo principal y thumbnail. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "type": "text",
+                      "src": [
+                        "Trading Avanzado"
+                      ]
+                    },
+                    {
+                      "key": "description",
+                      "type": "text",
+                      "src": [
+                        "Estrategias avanzadas de trading"
+                      ]
+                    },
+                    {
+                      "key": "media_type",
+                      "type": "text",
+                      "src": [
+                        ""
+                      ]
+                    },
+                    {
+                      "key": "rank_id",
+                      "type": "text",
+                      "src": [
+                        ""
+                      ]
+                    },
+                    {
+                      "key": "url",
+                      "type": "text",
+                      "src": [
+                        ""
+                      ]
+                    },
+                    {
+                      "key": "file",
+                      "type": "file",
+                      "src": []
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": []
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Content",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/educational-content/{{contentId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "educational-content",
+                    "{{contentId}}"
+                  ]
+                },
+                "description": "Elimina contenido educativo incluyendo archivos asociados y thumbnail. Requiere permisos de administrador."
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Missions",
+          "item": [
+            {
+              "name": "Get All Missions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/missions?page=1&limit=10&rank_id={{rankId}}&is_active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "missions"
+                  ]
+                },
+                "description": "Obtiene todas las misiones con filtros y paginación. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Missions By Rank",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/missions/rank/{{rankId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "missions",
+                    "rank",
+                    "{{rankId}}"
+                  ]
+                },
+                "description": "Obtiene misiones por rango específico. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Create Mission",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/missions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "missions"
+                  ]
+                },
+                "description": "Crea una nueva misión. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rank_id\": \"{{rankId}}\",\n  \"title\": \"Completar curso de trading básico\",\n  \"detail\": \"Debes completar el curso de trading básico y enviar una captura de pantalla del certificado\",\n  \"order\": 1,\n  \"form_type\": \"image\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Mission",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/missions/{{missionId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "missions",
+                    "{{missionId}}"
+                  ]
+                },
+                "description": "Actualiza una misión existente. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Completar curso de trading avanzado\",\n  \"description\": \"Curso actualizado con nuevo contenido\",\n  \"is_active\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Mission",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/missions/{{missionId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "missions",
+                    "{{missionId}}"
+                  ]
+                },
+                "description": "Elimina una misión. Requiere permisos de administrador."
+              },
+              "response": []
+            },
+            {
+              "name": "Reorder Missions",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/missions/rank/{{rankId}}/reorder",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "missions",
+                    "rank",
+                    "{{rankId}}",
+                    "reorder"
+                  ]
+                },
+                "description": "Reordena las misiones de un rango específico. Requiere permisos de administrador.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"missions\": [\n    {\n      \"id\": \"{{missionId1}}\",\n      \"order\": 1\n    },\n    {\n      \"id\": \"{{missionId2}}\",\n      \"order\": 2\n    },\n    {\n      \"id\": \"{{missionId3}}\",\n      \"order\": 3\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Mission Submissions",
+          "item": [
+            {
+              "name": "Get All Submissions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/mission-submissions?page=1&limit=10&status=pending&mission_id={{missionId}}&user_id={{userId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "mission-submissions"
+                  ]
+                },
+                "description": "Obtiene todos los envíos de misiones con filtros y paginación. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Pending Submissions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/mission-submissions/pending?page=1&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "mission-submissions",
+                    "pending"
+                  ]
+                },
+                "description": "Obtiene todos los envíos pendientes de revisión. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Submission Stats",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/mission-submissions/stats",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "mission-submissions",
+                    "stats"
+                  ]
+                },
+                "description": "Obtiene estadísticas de envíos de misiones. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Submission Details",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/mission-submissions/{{submissionId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "mission-submissions",
+                    "{{submissionId}}"
+                  ]
+                },
+                "description": "Obtiene detalles de un envío específico. Requiere autenticación de staff."
+              },
+              "response": []
+            },
+            {
+              "name": "Approve Submission",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/mission-submissions/{{submissionId}}/approve",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "mission-submissions",
+                    "{{submissionId}}",
+                    "approve"
+                  ]
+                },
+                "description": "Aprueba un envío de misión. Requiere autenticación de staff.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"feedback\": \"Excelente trabajo, misión completada correctamente\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Reject Submission",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/mission-submissions/{{submissionId}}/reject",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "mission-submissions",
+                    "{{submissionId}}",
+                    "reject"
+                  ]
+                },
+                "description": "Rechaza un envío de misión. Requiere autenticación de staff.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"feedback\": \"La imagen no es clara, por favor vuelve a enviar con mejor calidad\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get User Submissions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{staffToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/staff/mission-submissions/user/{{userId}}?page=1&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "staff",
+                    "mission-submissions",
+                    "user",
+                    "{{userId}}"
+                  ]
+                },
+                "description": "Obtiene todos los envíos de un usuario específico. Requiere autenticación de staff."
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/user/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "user",
+                "register"
+              ]
+            },
+            "description": "Registra un nuevo usuario en la plataforma. Requiere verificación previa del email.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstname\": \"Juan\",\n  \"lastname\": \"Pérez\",\n  \"phone\": \"+1234567890\",\n  \"verification_code\": \"123456\",\n  \"referred_by\": \"1234567890\",\n  \"email\": \"juan.perez@example.com\",\n  \"password\": \"SecurePassword123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/user/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "user",
+                "login"
+              ]
+            },
+            "description": "Inicia sesión de usuario y retorna un token de autenticación.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan.perez@example.com\",\n  \"password\": \"SecurePassword123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/user/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "user",
+                "logout"
+              ]
+            },
+            "description": "Cierra la sesión del usuario y limpia el refresh token."
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}:{{port}}/api/user/refresh",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "user",
+                "refresh"
+              ]
+            },
+            "description": "Renueva el token de acceso usando el refresh token almacenado en cookies."
+          },
+          "response": []
+        },
+        {
+          "name": "Educational Content",
+          "item": [
+            {
+              "name": "Get Available Content",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/educational-content?page=1&limit=10&media_type=video",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "educational-content"
+                  ]
+                },
+                "description": "Obtiene el contenido educativo disponible para el usuario según su rango, incluyendo thumbnails."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Content Details",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/educational-content/{{contentId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "educational-content",
+                    "{{contentId}}"
+                  ]
+                },
+                "description": "Obtiene detalles completos de un contenido educativo específico, incluyendo URLs de streaming y thumbnail."
+              },
+              "response": []
+            },
+            {
+              "name": "Stream Content",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/educational-content/stream/{{encryptedPath}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "educational-content",
+                    "stream",
+                    "{{encryptedPath}}"
+                  ]
+                },
+                "description": "Transmite el contenido educativo (video/audio) de forma segura."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Secure Link",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/educational-content/secure-link/{{encryptedPath}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "educational-content",
+                    "secure-link",
+                    "{{encryptedPath}}"
+                  ]
+                },
+                "description": "Accede a enlaces seguros de contenido educativo tipo 'link'. Verifica permisos del usuario y redirige al enlace original."
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Missions",
+          "item": [
+            {
+              "name": "Get Available Missions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/missions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "missions"
+                  ]
+                },
+                "description": "Obtiene las misiones disponibles para el usuario autenticado según su rango."
+              },
+              "response": []
+            },
+            {
+              "name": "Get My Progress",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/missions/progress",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "missions",
+                    "progress"
+                  ]
+                },
+                "description": "Obtiene el progreso del usuario en las misiones de su rango."
+              },
+              "response": []
+            },
+            {
+              "name": "Get My Submissions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/missions/submissions?page=1&limit=10&status=approved",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "missions",
+                    "submissions"
+                  ]
+                },
+                "description": "Obtiene el historial de envíos de misiones del usuario."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Mission Details",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/missions/{{missionId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "missions",
+                    "{{missionId}}"
+                  ]
+                },
+                "description": "Obtiene detalles de una misión específica disponible para el usuario."
+              },
+              "response": []
+            },
+            {
+              "name": "Submit Mission",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/missions/{{missionId}}/submit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "missions",
+                    "{{missionId}}",
+                    "submit"
+                  ]
+                },
+                "description": "Envía una misión con archivo adjunto (imagen, video o texto enriquecido).",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "submission_type",
+                      "type": "text",
+                      "src": [
+                        "image"
+                      ]
+                    },
+                    {
+                      "key": "content",
+                      "type": "text",
+                      "src": [
+                        "He completado el curso y aquí está mi certificado"
+                      ]
+                    },
+                    {
+                      "key": "file",
+                      "type": "file",
+                      "src": []
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Profile",
+          "item": [
+            {
+              "name": "Get Profile",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "profile"
+                  ]
+                },
+                "description": "Obtiene el perfil completo del usuario autenticado incluyendo información del rango."
+              },
+              "response": []
+            },
+            {
+              "name": "Update Profile",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "profile"
+                  ]
+                },
+                "description": "Actualiza la información del perfil del usuario (nombre, apellido, teléfono).",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstname\": \"Juan Carlos\",\n  \"lastname\": \"Pérez García\",\n  \"phone\": \"+1234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Change Password",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{userToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}:{{port}}/api/user/profile/change-password",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "port": "{{port}}",
+                  "path": [
+                    "api",
+                    "user",
+                    "profile",
+                    "change-password"
+                  ]
+                },
+                "description": "Cambia la contraseña del usuario. Requiere contraseña actual y nueva contraseña.",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"currentPassword\": \"CurrentPassword123!\",\n  \"newPassword\": \"NewSecurePassword123!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "localhost",
+      "type": "string"
+    },
+    {
+      "key": "port",
+      "value": "3000",
+      "type": "string"
+    },
+    {
+      "key": "userToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "staffToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "superAdminToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rankId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rankId1",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rankId2",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rankId3",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "contentId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "missionId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "missionId1",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "missionId2",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "missionId3",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "submissionId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "encryptedPath",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

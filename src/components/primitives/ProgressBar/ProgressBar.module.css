@@ -1,0 +1,23 @@
+.container {
+  background-color: var(--color-background, #0a0f0d);
+  border-radius: 12px;
+  padding: 2px;
+  width: 100%;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.track {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(55, 65, 81, 1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--color-primary-active, #bedd7d);
+  border-radius: 9999px;
+  transition-property: all;
+  transition-duration: 500ms;
+}
