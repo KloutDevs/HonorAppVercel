@@ -26,7 +26,6 @@
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "react": "^19.1.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^19.1.0",
     "react-dropzone": "^14.3.8",
     "react-fast-marquee": "^1.6.5",

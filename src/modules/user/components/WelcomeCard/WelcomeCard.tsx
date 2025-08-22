@@ -1,6 +1,6 @@
 import { Button } from '@/components/primitives/Buttons';
 import styles from './WelcomeCard.module.css';
-import ReclutaIcon from '@/assets/ranks/recluta.png';
+import ReclutaIcon from '@/assets/ranks/Recluta.png';
 
 const BackgroundShape = () => (
     <svg className={styles.backgroundShape} xmlns="http://www.w3.org/2000/svg" width="450" height="430" viewBox="0 0 450 430" fill="none">
